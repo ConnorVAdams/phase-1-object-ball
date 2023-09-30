@@ -111,11 +111,20 @@ const teamNames = () => {
 const playerNumbers = (teamName) => {
     teamNumbers = []
     for (team of Object.values(gameObj)) {
-        debugger
         if (team['teamName'].toLowerCase() === teamName.toLowerCase()) {
             for (player of Object.values(team['players']))
                 teamNumbers.push(player['points'])
         }
         }
     return teamNumbers
+}
+
+const playerStats = (playerName) => {
+    for (team of Object.values(gameObj)) {
+        for ([player, stats] of Object.entries(team['players'])) {
+            if (player.toLowerCase() === playerName.toLowerCase()) {
+                return stats
+            }
+        }
+    }
 }
