@@ -76,3 +76,20 @@ const numPointsScored = (playerName) => {
     }
     console.log('No such player.')
 }
+
+const shoeSize = (playerName) => {
+    for ([key, value] of Object.entries(gameObj.home.players)) {
+            if (key.toLowerCase() === playerName.toLowerCase()) {
+                return value['shoe']
+        } else {
+            for ([key, value] of Object.entries(gameObj.away.players)) {
+                if (key.toLowerCase() === playerName.toLowerCase()) {
+                    return value['shoe']
+                }
+            } 
+        }
+    }
+    console.log('No such player.')
+}
+
+const teamColors =
