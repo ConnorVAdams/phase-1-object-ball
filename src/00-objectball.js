@@ -92,4 +92,11 @@ const shoeSize = (playerName) => {
     console.log('No such player.')
 }
 
-const teamColors =
+const teamColors = (teamName) => {
+    for (value of Object.values(gameObj)) {
+
+        if (value['teamName'].toLowerCase() === teamName.toLowerCase()) {
+            return value['colors']
+        }
+    }
+}
