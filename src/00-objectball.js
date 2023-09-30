@@ -128,3 +128,21 @@ const playerStats = (playerName) => {
         }
     }
 }
+
+const bigShoeRebounds = () => {
+    for (team of Object.values(gameObj)) {
+        let largestShoe = 0
+        let largestShoePlayer
+        for ([player, stats] of Object.entries(team['players'])) {
+            if (stats['shoe'] > largestShoe) {
+                largestShoe = stats['shoe']
+                largestShoePlayer = player
+            }  
+        }
+        for ([player, stats] of Object.entries(team['players'])) {
+            if (player === largestShoePlayer) {
+                return stats['rebounds']
+            }
+        }
+    }
+}
