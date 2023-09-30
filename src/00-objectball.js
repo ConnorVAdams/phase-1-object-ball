@@ -94,9 +94,28 @@ const shoeSize = (playerName) => {
 
 const teamColors = (teamName) => {
     for (value of Object.values(gameObj)) {
-
         if (value['teamName'].toLowerCase() === teamName.toLowerCase()) {
             return value['colors']
         }
     }
+}
+
+const teamNames = () => {
+    let teamNames = []
+    for (value of Object.values(gameObj)) {
+        teamNames.push(value['teamName'])
+    }
+    return teamNames
+}
+
+const playerNumbers = (teamName) => {
+    teamNumbers = []
+    for (team of Object.values(gameObj)) {
+        debugger
+        if (team['teamName'].toLowerCase() === teamName.toLowerCase()) {
+            for (player of Object.values(team['players']))
+                teamNumbers.push(player['points'])
+        }
+        }
+    return teamNumbers
 }
